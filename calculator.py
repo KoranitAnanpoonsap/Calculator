@@ -22,15 +22,15 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.clear_entry = QtWidgets.QPushButton(self.centralwidget)
+        self.delete = QtWidgets.QPushButton(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Preferred
         )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(12)
-        sizePolicy.setHeightForWidth(self.clear_entry.sizePolicy().hasHeightForWidth())
-        self.clear_entry.setSizePolicy(sizePolicy)
-        self.clear_entry.setStyleSheet(
+        sizePolicy.setHeightForWidth(self.delete.sizePolicy().hasHeightForWidth())
+        self.delete.setSizePolicy(sizePolicy)
+        self.delete.setStyleSheet(
             "QPushButton{\n"
             'font: 75 20pt "MS Shell Dlg 2";\n'
             "    color: rgb(255, 255, 255);\n"
@@ -48,8 +48,8 @@ class Ui_MainWindow(object):
             "    color: rgb(255, 255, 255);\n"
             "}"
         )
-        self.clear_entry.setObjectName("clear_entry")
-        self.gridLayout.addWidget(self.clear_entry, 5, 0, 1, 2)
+        self.delete.setObjectName("delete")
+        self.gridLayout.addWidget(self.delete, 5, 0, 1, 2)
         self.label = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Preferred
@@ -573,7 +573,7 @@ class Ui_MainWindow(object):
         self.multiply.clicked.connect(self.method_mult)
         self.divide.clicked.connect(self.method_div)
         self.clear.clicked.connect(self.method_clear)
-        self.clear_entry.clicked.connect(self.method_ce)
+        self.delete.clicked.connect(self.method_del)
 
     def method_1(self):
         text = self.label.text()
@@ -638,7 +638,7 @@ class Ui_MainWindow(object):
     def method_clear(self):
         self.label.setText("")
 
-    def method_ce(self):
+    def method_del(self):
         text = self.label.text()
         self.label.setText(text[: len(text) - 1])
 
@@ -654,7 +654,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Calculator"))
-        self.clear_entry.setText(_translate("MainWindow", "CE"))
+        self.delete.setText(_translate("MainWindow", "DEL"))
         self.three.setText(_translate("MainWindow", "3"))
         self.minus.setText(_translate("MainWindow", "-"))
         self.decimal.setText(_translate("MainWindow", "."))
