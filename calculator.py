@@ -649,7 +649,7 @@ class Ui_MainWindow(object):
             ans = eval(text)
             self.label.setText(str(ans))
         except:
-            self.label.setText("Wrong Input")
+            self.label.setText("ERROR")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
